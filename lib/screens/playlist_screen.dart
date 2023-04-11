@@ -43,20 +43,7 @@ class _PlaylistScreenState extends State<PlaylistScreen> {
                       ),
                       onPressed: () {},
                     ),
-                    ontap: () {
-                      if (isPlaying == false) {
-                        setState(() {
-                          isPlaying = true;
-                          audioPlayer
-                              .play(AssetSource(musicList[index]['asset']));
-                        });
-                      } else {
-                        setState(() {
-                          isPlaying = false;
-                          audioPlayer.pause();
-                        });
-                      }
-                    },
+                    path: musicList[index]['asset'],
                   ),
                 );
               },

@@ -27,3 +27,5 @@ TextStyle primaryTextStyle = GoogleFonts.ubuntu(
 TextStyle textFormTextStyle = GoogleFonts.ubuntu(
   color: Colors.white,
 );
+
+bool isPlaying = false;

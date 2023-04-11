@@ -15,7 +15,6 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   AudioPlayer audioPlayer = AudioPlayer();
   String url = "https://cdn.pixabay.com/audio/2023/04/03/audio_047543feac.mp3";
-  bool isPlaying = false;
 
   @override
   Widget build(BuildContext context) {
@@ -153,25 +152,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                     ),
                                   ),
                                   const Spacer(),
-                                  IconButton(
-                                    onPressed: () {
-                                      if (isPlaying == false) {
-                                        setState(() {
-                                          isPlaying = true;
-                                          audioPlayer.play(UrlSource(url));
-                                        });
-                                      } else {
-                                        setState(() {
-                                          isPlaying = false;
-                                          audioPlayer.pause();
-                                        });
-                                      }
-                                    },
-                                    icon: const Icon(
-                                      Icons.arrow_forward_ios_outlined,
-                                      color: Colors.white,
-                                    ),
-                                  ),
+                          
                                 ],
                               ),
                             ],
@@ -201,8 +182,12 @@ class _HomeScreenState extends State<HomeScreen> {
                                         if (isPlaying == false) {
                                           setState(() {
                                             isPlaying = true;
-                                            audioPlayer.play(AssetSource(
-                                                musicList[index]['asset']));
+                                            audioPlayer.play(
+                                              AssetSource(
+                                                musicList[index]['asset'],
+                                              ),
+                                            );
+                                            isPlaying = true;
                                           });
                                         } else {
                                           setState(() {
@@ -212,7 +197,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                         }
                                       },
                                     ),
-                                    ontap: () {},
+                                    path: musicList[index]['asset'],
                                   ),
                                 );
                               },
