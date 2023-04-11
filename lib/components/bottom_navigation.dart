@@ -3,9 +3,10 @@
 import 'package:flutter/material.dart';
 import 'package:wave_tune/screens/login_screen.dart';
 import 'package:wave_tune/screens/playlist_screen.dart';
+import 'package:wave_tune/screens/profile_screen.dart';
 import 'package:wave_tune/screens/register_screen.dart';
 
-import 'home_screen.dart';
+import '../screens/home_screen.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -26,7 +27,7 @@ class _MainScreenState extends State<MainScreen> {
   static const List<Widget> _pages = <Widget>[
     HomeScreen(),
     PlaylistScreen(),
-    HomeScreen(),
+    ProfileScreen(),
   ];
   @override
   Widget build(BuildContext context) {
@@ -50,7 +51,7 @@ class _MainScreenState extends State<MainScreen> {
             ),
             BottomNavigationBarItem(
               icon: Icon(
-                Icons.search,
+                Icons.person,
                 color: Colors.white,
               ),
               label: '',

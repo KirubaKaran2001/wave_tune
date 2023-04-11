@@ -2,7 +2,8 @@ import 'dart:ui';
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:wave_tune/constants/music_constants.dart';
-import 'package:wave_tune/constants/music_tile.dart';
+import 'package:wave_tune/components/music_tile.dart';
+import '../constants/constants.dart';
 import '../constants/text_style_constants.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -152,7 +153,6 @@ class _HomeScreenState extends State<HomeScreen> {
                                     ),
                                   ),
                                   const Spacer(),
-                          
                                 ],
                               ),
                             ],
@@ -171,32 +171,6 @@ class _HomeScreenState extends State<HomeScreen> {
                                     imageSrc: musicList[index]['imgSource'],
                                     songArtist: musicList[index]['artistName'],
                                     songTitle: musicList[index]['songTitle'],
-                                    widget: IconButton(
-                                      icon: Icon(
-                                        (isPlaying == true)
-                                            ? Icons.pause
-                                            : Icons.play_arrow,
-                                        color: Colors.white70,
-                                      ),
-                                      onPressed: () {
-                                        if (isPlaying == false) {
-                                          setState(() {
-                                            isPlaying = true;
-                                            audioPlayer.play(
-                                              AssetSource(
-                                                musicList[index]['asset'],
-                                              ),
-                                            );
-                                            isPlaying = true;
-                                          });
-                                        } else {
-                                          setState(() {
-                                            isPlaying = false;
-                                            audioPlayer.pause();
-                                          });
-                                        }
-                                      },
-                                    ),
                                     path: musicList[index]['asset'],
                                   ),
                                 );

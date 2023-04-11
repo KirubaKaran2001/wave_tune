@@ -3,18 +3,18 @@ import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:wave_tune/constants/text_style_constants.dart';
 
+import '../constants/constants.dart';
+
 class MusicTile extends StatefulWidget {
   String? imageSrc;
   String? songTitle;
   String? songArtist;
   String? path;
-  Widget? widget;
   MusicTile(
       {required this.path,
       required this.songArtist,
       required this.songTitle,
       required this.imageSrc,
-      required this.widget,
       super.key});
 
   @override

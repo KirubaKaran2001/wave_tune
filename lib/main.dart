@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:wave_tune/screens/home_screen.dart';
-import 'package:wave_tune/screens/main_screen.dart';
+import 'package:wave_tune/components/bottom_navigation.dart';
 import 'package:wave_tune/screens/login_screen.dart';
 import 'package:wave_tune/screens/playlist_screen.dart';
 import 'package:wave_tune/screens/register_screen.dart';
