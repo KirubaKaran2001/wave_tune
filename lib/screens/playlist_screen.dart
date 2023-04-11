@@ -1,3 +1,4 @@
+import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
@@ -12,6 +13,8 @@ class PlaylistScreen extends StatefulWidget {
 }
 
 class _PlaylistScreenState extends State<PlaylistScreen> {
+  bool isPlaying = false;
+  AudioPlayer audioPlayer = AudioPlayer();
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -33,6 +36,27 @@ class _PlaylistScreenState extends State<PlaylistScreen> {
                     imageSrc: musicList[index]['imgSource'],
                     songArtist: musicList[index]['artistName'],
                     songTitle: musicList[index]['songTitle'],
+                    widget: IconButton(
+                      icon: const Icon(
+                        Icons.play_arrow,
+                        color: Colors.white70,
+                      ),
+                      onPressed: () {},
+                    ),
+                    ontap: () {
+                      if (isPlaying == false) {
+                        setState(() {
+                          isPlaying = true;
+                          audioPlayer
+                              .play(AssetSource(musicList[index]['asset']));
+                        });
+                      } else {
+                        setState(() {
+                          isPlaying = false;
+                          audioPlayer.pause();
+                        });
+                      }
+                    },
                   ),
                 );
               },

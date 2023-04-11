@@ -65,6 +65,16 @@ flutter:
     - assets/1.jpg
     - assets/2.jpeg
     - assets/3.jpg
+    - assets/venom.mp3
+    - assets/god plan.mp3
+    - assets/Oru Naalil.mp3
+    - assets/porkanda.mp3
+    - assets/naan.mp3
+    - assets/beliver.mp3
+    - assets/DJ Snake.mp3
+    - assets/atmave poo.mp3
+    - assets/nee kavithaile.mp3
+
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

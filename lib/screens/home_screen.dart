@@ -190,6 +190,29 @@ class _HomeScreenState extends State<HomeScreen> {
                                     imageSrc: musicList[index]['imgSource'],
                                     songArtist: musicList[index]['artistName'],
                                     songTitle: musicList[index]['songTitle'],
+                                    widget: IconButton(
+                                      icon: Icon(
+                                        (isPlaying == true)
+                                            ? Icons.pause
+                                            : Icons.play_arrow,
+                                        color: Colors.white70,
+                                      ),
+                                      onPressed: () {
+                                        if (isPlaying == false) {
+                                          setState(() {
+                                            isPlaying = true;
+                                            audioPlayer.play(AssetSource(
+                                                musicList[index]['asset']));
+                                          });
+                                        } else {
+                                          setState(() {
+                                            isPlaying = false;
+                                            audioPlayer.pause();
+                                          });
+                                        }
+                                      },
+                                    ),
+                                    ontap: () {},
                                   ),
                                 );
                               },
