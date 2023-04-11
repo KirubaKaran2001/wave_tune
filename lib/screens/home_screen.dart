@@ -1,6 +1,7 @@
 import 'dart:ui';
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
+import 'package:wave_tune/constants/music_constants.dart';
 import 'package:wave_tune/constants/music_tile.dart';
 import '../constants/text_style_constants.dart';
 
@@ -46,91 +47,129 @@ class _HomeScreenState extends State<HomeScreen> {
                     child: SingleChildScrollView(
                       child: Column(
                         children: [
-                          Container(
-                            decoration: BoxDecoration(
-                                color: Colors.white70.withOpacity(0.4),
-                                borderRadius: BorderRadius.circular(15)),
-                            child: TextFormField(
-                              style: textFormTextStyle,
-                              decoration: InputDecoration(
-                                hintText: 'search by album ,artist',
-                                hintStyle: textFormTextStyle,
-                                fillColor: Colors.white.withOpacity(0.2),
-                                focusedBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(15.0),
-                                  borderSide: BorderSide(
-                                    color: Colors.white70.withOpacity(0.4),
-                                  ),
-                                ),
-                                enabledBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(15.0),
-                                  borderSide: BorderSide(
-                                    color: Colors.white70.withOpacity(0.4),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-                          const SizedBox(
-                            height: 20,
-                          ),
-                          Row(
+                          Column(
                             children: [
-                              Text(
-                                'New Albums',
-                                style: primaryTextStyle.copyWith(
-                                  fontWeight: FontWeight.w500,
-                                  fontSize: 20,
-                                ),
-                              ),
-                              const Spacer(),
-                              IconButton(
-                                onPressed: () {},
-                                icon: const Icon(
-                                  Icons.arrow_forward_ios_outlined,
-                                  color: Colors.white,
-                                ),
-                              ),
-                            ],
-                          ),
-                          const SizedBox(
-                            height: 20,
-                          ),
-                          Row(
-                            children: [
-                              ClipRRect(
-                                borderRadius: BorderRadius.circular(15),
-                                child: Image.asset(
-                                  'assets/1.jpg',
-                                  height: 150,
-                                  width: 200,
-                                  fit: BoxFit.cover,
+                              Container(
+                                decoration: BoxDecoration(
+                                    color: Colors.white70.withOpacity(0.4),
+                                    borderRadius: BorderRadius.circular(15)),
+                                child: TextFormField(
+                                  style: textFormTextStyle,
+                                  decoration: InputDecoration(
+                                    hintText: 'search by album ,artist',
+                                    hintStyle: textFormTextStyle,
+                                    fillColor: Colors.white.withOpacity(0.2),
+                                    focusedBorder: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(15.0),
+                                      borderSide: BorderSide(
+                                        color: Colors.white70.withOpacity(0.4),
+                                      ),
+                                    ),
+                                    enabledBorder: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(15.0),
+                                      borderSide: BorderSide(
+                                        color: Colors.white70.withOpacity(0.4),
+                                      ),
+                                    ),
+                                  ),
                                 ),
                               ),
                               const SizedBox(
-                                width: 10,
+                                height: 20,
                               ),
-                              Column(
+                              Row(
+                                children: [
+                                  Text(
+                                    'New Albums',
+                                    style: primaryTextStyle.copyWith(
+                                      fontWeight: FontWeight.w500,
+                                      fontSize: 20,
+                                    ),
+                                  ),
+                                  const Spacer(),
+                                  IconButton(
+                                    onPressed: () {},
+                                    icon: const Icon(
+                                      Icons.arrow_forward_ios_outlined,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              const SizedBox(
+                                height: 20,
+                              ),
+                              Row(
                                 children: [
                                   ClipRRect(
-                                    borderRadius: BorderRadius.circular(5),
+                                    borderRadius: BorderRadius.circular(15),
                                     child: Image.asset(
-                                      'assets/2.jpeg',
-                                      height: 70,
-                                      width: 100,
+                                      'assets/1.jpg',
+                                      height: 150,
+                                      width: 200,
                                       fit: BoxFit.cover,
                                     ),
                                   ),
                                   const SizedBox(
-                                    height: 10,
+                                    width: 10,
                                   ),
-                                  ClipRRect(
-                                    borderRadius: BorderRadius.circular(5),
-                                    child: Image.asset(
-                                      'assets/3.jpg',
-                                      height: 70,
-                                      width: 100,
-                                      fit: BoxFit.cover,
+                                  Column(
+                                    children: [
+                                      ClipRRect(
+                                        borderRadius: BorderRadius.circular(5),
+                                        child: Image.asset(
+                                          'assets/2.jpeg',
+                                          height: 70,
+                                          width: 100,
+                                          fit: BoxFit.cover,
+                                        ),
+                                      ),
+                                      const SizedBox(
+                                        height: 10,
+                                      ),
+                                      ClipRRect(
+                                        borderRadius: BorderRadius.circular(5),
+                                        child: Image.asset(
+                                          'assets/3.jpg',
+                                          height: 70,
+                                          width: 100,
+                                          fit: BoxFit.cover,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                              const SizedBox(
+                                height: 20,
+                              ),
+                              Row(
+                                children: [
+                                  Text(
+                                    'Popular Music',
+                                    style: primaryTextStyle.copyWith(
+                                      fontWeight: FontWeight.w500,
+                                      fontSize: 20,
+                                    ),
+                                  ),
+                                  const Spacer(),
+                                  IconButton(
+                                    onPressed: () {
+                                      if (isPlaying == false) {
+                                        setState(() {
+                                          isPlaying = true;
+                                          audioPlayer.play(UrlSource(url));
+                                        });
+                                      } else {
+                                        setState(() {
+                                          isPlaying = false;
+                                          audioPlayer.pause();
+                                        });
+                                      }
+                                    },
+                                    icon: const Icon(
+                                      Icons.arrow_forward_ios_outlined,
+                                      color: Colors.white,
                                     ),
                                   ),
                                 ],
@@ -140,48 +179,22 @@ class _HomeScreenState extends State<HomeScreen> {
                           const SizedBox(
                             height: 20,
                           ),
-                          Row(
-                            children: [
-                              Text(
-                                'Popular Music',
-                                style: primaryTextStyle.copyWith(
-                                  fontWeight: FontWeight.w500,
-                                  fontSize: 20,
-                                ),
-                              ),
-                              const Spacer(),
-                              IconButton(
-                                onPressed: () {
-                                  if (isPlaying == false) {
-                                    setState(() {
-                                      isPlaying = true;
-                                      audioPlayer.play(UrlSource(url));
-                                    });
-                                  } else {
-                                    setState(() {
-                                      isPlaying = false;
-                                      audioPlayer.pause();
-                                    });
-                                  }
-                                },
-                                icon: const Icon(
-                                  Icons.arrow_forward_ios_outlined,
-                                  color: Colors.white,
-                                ),
-                              ),
-                            ],
-                          ),
-                          // Expanded(
-                          //   child: ListView.builder(
-                          //     itemCount: 10,
-                          //     itemBuilder: (context, index) {
-                          //       return const Padding(
-                          //         padding: EdgeInsets.all(10.0),
-                          //         child: MusicTile(),
-                          //       );
-                          //     },
-                          //   ),
-                          // ),
+                          Container(
+                            height: MediaQuery.of(context).size.height,
+                            child: ListView.builder(
+                              itemCount: musicList.length,
+                              itemBuilder: (context, index) {
+                                return Padding(
+                                  padding: const EdgeInsets.all(10.0),
+                                  child: MusicTile(
+                                    imageSrc: musicList[index]['imgSource'],
+                                    songArtist: musicList[index]['artistName'],
+                                    songTitle: musicList[index]['songTitle'],
+                                  ),
+                                );
+                              },
+                            ),
+                          )
                         ],
                       ),
                     ),

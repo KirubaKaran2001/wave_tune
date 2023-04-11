@@ -1,8 +1,14 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:flutter/material.dart';
 import 'package:wave_tune/constants/text_style_constants.dart';
 
 class MusicTile extends StatelessWidget {
-  const MusicTile({super.key});
+  String? imageSrc;
+  String? songTitle;
+  String? songArtist;
+  MusicTile(
+      {required this.songArtist, this.songTitle, this.imageSrc, super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -12,8 +18,9 @@ class MusicTile extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Image.network(
-            'https://images.unsplash.com/photo-1680695919965-06633e4c2e14?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80',
+            imageSrc!,
             height: 60,
+            width: 50,
             fit: BoxFit.fitHeight,
           ),
           const SizedBox(
@@ -23,14 +30,14 @@ class MusicTile extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                'song title',
+                songTitle!,
                 style: primaryTextStyle,
               ),
               const SizedBox(
                 height: 20,
               ),
               Text(
-                'song artist',
+                songArtist!,
                 style: primaryTextStyle,
               ),
             ],
