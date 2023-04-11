@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:wave_tune/screens/home_screen.dart';
 import 'package:wave_tune/screens/main_screen.dart';
 import 'package:wave_tune/screens/login_screen.dart';
+import 'package:wave_tune/screens/playlist_screen.dart';
 import 'package:wave_tune/screens/register_screen.dart';
 
 void main() {
@@ -28,6 +29,8 @@ class MyApp extends StatelessWidget {
           '/login': (BuildContext context) => const LoginScreen(),
           '/main': (BuildContext context) => const MainScreen(),
           '/home': (BuildContext context) => const HomeScreen(),
+          '/playList': (BuildContext context) => const PlaylistScreen(),
+          
         };
         WidgetBuilder builder = routes[settings.name]!;
         return MaterialPageRoute(

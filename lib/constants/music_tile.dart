@@ -13,7 +13,7 @@ class MusicTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.white54.withOpacity(0.2),
+      color: Colors.white70.withOpacity(0.2),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

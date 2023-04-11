@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:wave_tune/screens/login_screen.dart';
+import 'package:wave_tune/screens/playlist_screen.dart';
 import 'package:wave_tune/screens/register_screen.dart';
 
 import 'home_screen.dart';
@@ -24,7 +25,7 @@ class _MainScreenState extends State<MainScreen> {
 
   static const List<Widget> _pages = <Widget>[
     HomeScreen(),
-    HomeScreen(),
+    PlaylistScreen(),
     HomeScreen(),
   ];
   @override
