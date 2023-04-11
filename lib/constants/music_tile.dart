@@ -34,7 +34,7 @@ class MusicTile extends StatelessWidget {
                 style: primaryTextStyle,
               ),
               const SizedBox(
-                height: 20,
+                height: 15,
               ),
               Text(
                 songArtist!,
