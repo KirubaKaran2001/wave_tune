@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
@@ -35,7 +37,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
             ),
             SingleChildScrollView(
               child: Padding(
-                padding: const EdgeInsets.only(top:20.0),
+                padding: const EdgeInsets.only(top: 20.0),
                 child: Column(
                   // crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
@@ -79,6 +81,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     Padding(
                       padding: const EdgeInsets.all(10.0),
                       child: ElevatedButton(
+                        style: const ButtonStyle(
+                          backgroundColor: MaterialStatePropertyAll(
+                            Color(0xff2b65f3),
+                          ),
+                        ),
                         onPressed: () {
                           Navigator.pop(context);
                         },
