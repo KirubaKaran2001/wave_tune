@@ -1,5 +1,7 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:neopop/widgets/buttons/neopop_button/neopop_button.dart';
 import '../constants/text_style_constants.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -128,21 +130,48 @@ class _LoginScreenState extends State<LoginScreen> {
                         const SizedBox(
                           height: 40,
                         ),
+                        // Center(
+                        //   child: ElevatedButton(
+                        //     style: const ButtonStyle(
+                        //       backgroundColor: MaterialStatePropertyAll(
+                        //         Color(0xff2b65f3),
+                        //       ),
+                        //     ),
+                        //     onPressed: () {
+                        //       Navigator.pushNamed(context, '/main');
+                        //     },
+                        //     child: Padding(
+                        //       padding: const EdgeInsets.all(15.0),
+                        //       child: Text(
+                        //         'Sign in',
+                        //         style: buttonTextStyle,
+                        //       ),
+                        //     ),
+                        //   ),
+                        // ),
                         Center(
-                          child: ElevatedButton(
-                            style: const ButtonStyle(
-                              backgroundColor: MaterialStatePropertyAll(
-                                Color(0xff2b65f3),
-                              ),
-                            ),
-                            onPressed: () {
+                          child: NeoPopButton(
+                            color: const Color(0xff2b65f3),
+                            onTapUp: () {
+                              HapticFeedback.vibrate();
                               Navigator.pushNamed(context, '/main');
                             },
+                            onTapDown: () {
+                              HapticFeedback.vibrate();
+                            },
                             child: Padding(
-                              padding: const EdgeInsets.all(15.0),
-                              child: Text(
-                                'Sign in',
-                                style: buttonTextStyle,
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 20,
+                                vertical: 15,
+                              ),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text(
+                                    "Sign in",
+                                    style: buttonTextStyle,
+                                  ),
+                                ],
                               ),
                             ),
                           ),
