@@ -39,7 +39,8 @@ dependencies:
   neopop: ^1.0.2
   firebase_core: ^2.10.0
   firebase_auth: ^4.4.2
-   
+  lottie: ^2.3.2
+  shared_preferences: ^2.1.0
 
 dev_dependencies:
   flutter_test:
@@ -78,6 +79,7 @@ flutter:
     - assets/DJ Snake.mp3
     - assets/atmave poo.mp3
     - assets/nee kavithaile.mp3
+    - assets/music.json
 
 
   # An image asset can refer to one or more resolution-specific "variants", see

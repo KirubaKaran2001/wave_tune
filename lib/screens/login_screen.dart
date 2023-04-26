@@ -1,7 +1,12 @@
+// ignore_for_file: avoid_print
+
 import 'dart:ui';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:neopop/widgets/buttons/neopop_button/neopop_button.dart';
+import '../constants/constants.dart';
 import '../constants/text_style_constants.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -12,6 +17,8 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -80,6 +87,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           height: 10,
                         ),
                         TextFormField(
+                          controller: emailController,
                           style: textFormTextStyle,
                           decoration: InputDecoration(
                             fillColor: Colors.white,
@@ -109,6 +117,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           height: 10,
                         ),
                         TextFormField(
+                          controller: passwordController,
                           style: textFormTextStyle,
                           decoration: InputDecoration(
                             fillColor: Colors.white,
@@ -130,31 +139,22 @@ class _LoginScreenState extends State<LoginScreen> {
                         const SizedBox(
                           height: 40,
                         ),
-                        // Center(
-                        //   child: ElevatedButton(
-                        //     style: const ButtonStyle(
-                        //       backgroundColor: MaterialStatePropertyAll(
-                        //         Color(0xff2b65f3),
-                        //       ),
-                        //     ),
-                        //     onPressed: () {
-                        //       Navigator.pushNamed(context, '/main');
-                        //     },
-                        //     child: Padding(
-                        //       padding: const EdgeInsets.all(15.0),
-                        //       child: Text(
-                        //         'Sign in',
-                        //         style: buttonTextStyle,
-                        //       ),
-                        //     ),
-                        //   ),
-                        // ),
                         Center(
                           child: NeoPopButton(
                             color: const Color(0xff2b65f3),
                             onTapUp: () {
                               HapticFeedback.vibrate();
+                              // .then((value) {
+                              //   FirebaseAuth.instance
+                              //       .signInWithEmailAndPassword(
+                              //           email: emailController.text,
+                              //           password: passwordController.text);
+                              // }).then((value) {
+                              prefs!.setBool('login', true);
                               Navigator.pushNamed(context, '/main');
+                              // }).onError((error, stackTrace) {
+                              //   print('Error ${error.toString()}');
+                              // });
                             },
                             onTapDown: () {
                               HapticFeedback.vibrate();
