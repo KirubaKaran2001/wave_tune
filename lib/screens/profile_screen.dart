@@ -79,7 +79,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     Padding(
                       padding: const EdgeInsets.all(10.0),
                       child: NeoPopButton(
-                        animationDuration: const Duration(milliseconds: 1000),
                         color: const Color(0xff2b65f3),
                         onTapUp: () {
                           HapticFeedback.vibrate();
