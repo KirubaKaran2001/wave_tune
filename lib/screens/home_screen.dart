@@ -3,7 +3,6 @@ import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:wave_tune/constants/music_constants.dart';
 import 'package:wave_tune/components/music_tile.dart';
-import '../constants/constants.dart';
 import '../constants/text_style_constants.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -15,7 +14,6 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   AudioPlayer audioPlayer = AudioPlayer();
-  String url = "https://cdn.pixabay.com/audio/2023/04/03/audio_047543feac.mp3";
 
   @override
   Widget build(BuildContext context) {

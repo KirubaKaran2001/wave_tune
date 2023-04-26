@@ -1,8 +1,6 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:flutter/services.dart';
+import 'package:neopop/widgets/buttons/neopop_button/neopop_button.dart';
 import 'package:wave_tune/components/profile_tile.dart';
 import 'package:wave_tune/constants/text_style_constants.dart';
 
@@ -80,18 +78,23 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     ),
                     Padding(
                       padding: const EdgeInsets.all(10.0),
-                      child: ElevatedButton(
-                        style: const ButtonStyle(
-                          backgroundColor: MaterialStatePropertyAll(
-                            Color(0xff2b65f3),
-                          ),
-                        ),
-                        onPressed: () {
+                      child: NeoPopButton(
+                        animationDuration: const Duration(milliseconds: 1000),
+                        color: const Color(0xff2b65f3),
+                        onTapUp: () {
+                          HapticFeedback.vibrate();
                           Navigator.pop(context);
                         },
-                        child: Text(
-                          'Logout',
-                          style: buttonTextStyle,
+                        onTapDown: () {
+                          HapticFeedback.vibrate();
+                        },
+                        child: Padding(
+                          padding: const EdgeInsets.only(
+                              top: 8.0, bottom: 8.0, right: 20, left: 20),
+                          child: Text(
+                            "Logout",
+                            style: buttonTextStyle,
+                          ),
                         ),
                       ),
                     ),
