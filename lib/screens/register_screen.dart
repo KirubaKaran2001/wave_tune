@@ -1,4 +1,7 @@
+// ignore_for_file: avoid_print
 import 'dart:ui';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import '../constants/text_style_constants.dart';
 
@@ -10,6 +13,10 @@ class RegisterScreen extends StatefulWidget {
 }
 
 class _RegisterScreenState extends State<RegisterScreen> {
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+  TextEditingController reEnterPasswordController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -78,6 +85,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           height: 10,
                         ),
                         TextFormField(
+                          controller: emailController,
                           style: textFormTextStyle,
                           decoration: InputDecoration(
                             fillColor: Colors.white,
@@ -107,6 +115,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           height: 10,
                         ),
                         TextFormField(
+                          controller: passwordController,
                           style: textFormTextStyle,
                           decoration: InputDecoration(
                             fillColor: Colors.white,
@@ -136,6 +145,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           height: 10,
                         ),
                         TextFormField(
+                          controller: reEnterPasswordController,
                           style: textFormTextStyle,
                           decoration: InputDecoration(
                             fillColor: Colors.white,
@@ -164,7 +174,17 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                 Color(0xff2b65f3),
                               ),
                             ),
-                            onPressed: () {},
+                            onPressed: () {
+                              FirebaseAuth.instance
+                                  .createUserWithEmailAndPassword(
+                                      email: emailController.text,
+                                      password: passwordController.text)
+                                  .then((value) {
+                                Navigator.pushNamed(context, '/login');
+                              }).onError((error, stackTrace) {
+                                print('Error ${error.toString()}');
+                              });
+                            },
                             child: Padding(
                               padding: const EdgeInsets.all(15.0),
                               child: Text(

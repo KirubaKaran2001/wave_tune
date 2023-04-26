@@ -1,3 +1,4 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:wave_tune/screens/home_screen.dart';
 import 'package:wave_tune/components/bottom_navigation.dart';
@@ -5,7 +6,9 @@ import 'package:wave_tune/screens/login_screen.dart';
 import 'package:wave_tune/screens/playlist_screen.dart';
 import 'package:wave_tune/screens/register_screen.dart';
 
-void main() {
+void main()async {
+//   WidgetsFlutterBinding.ensureInitialized();
+//  await Firebase.initializeApp();
   runApp(const MyApp());
 }
 
@@ -30,7 +33,6 @@ class MyApp extends StatelessWidget {
           '/main': (BuildContext context) => const MainScreen(),
           '/home': (BuildContext context) => const HomeScreen(),
           '/playList': (BuildContext context) => const PlaylistScreen(),
-          
         };
         WidgetBuilder builder = routes[settings.name]!;
         return MaterialPageRoute(

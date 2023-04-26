@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "265927466923",
+    "project_id": "handy-cell-371905",
+    "storage_bucket": "handy-cell-371905.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:265927466923:android:a4231ef1e0f9e43b143cee",
+        "android_client_info": {
+          "package_name": "com.example.wave_tune"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "265927466923-dv5rjjb68kmf1lkt1ph5gb8o4gluue5h.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.wave_tune",
+            "certificate_hash": "fa27d1d2c0d1406f4a22cc75a59b451da40fffe2"
+          }
+        },
+        {
+          "client_id": "265927466923-9m6erkrkk6csn2qduf3obanh4ib3grct.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBGgpo5YHxsb4DTNqbu7cEB41ictBo1RuU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "265927466923-9m6erkrkk6csn2qduf3obanh4ib3grct.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
