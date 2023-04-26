@@ -143,18 +143,18 @@ class _LoginScreenState extends State<LoginScreen> {
                           child: NeoPopButton(
                             color: const Color(0xff2b65f3),
                             onTapUp: () {
-                              HapticFeedback.vibrate();
-                              // .then((value) {
-                              //   FirebaseAuth.instance
-                              //       .signInWithEmailAndPassword(
-                              //           email: emailController.text,
-                              //           password: passwordController.text);
-                              // }).then((value) {
+                              HapticFeedback.vibrate()
+                              .then((value) {
+                                FirebaseAuth.instance
+                                    .signInWithEmailAndPassword(
+                                        email: emailController.text,
+                                        password: passwordController.text);
+                              }).then((value) {
                               prefs!.setBool('login', true);
                               Navigator.pushNamed(context, '/main');
-                              // }).onError((error, stackTrace) {
-                              //   print('Error ${error.toString()}');
-                              // });
+                              }).onError((error, stackTrace) {
+                                print('Error ${error.toString()}');
+                              });
                             },
                             onTapDown: () {
                               HapticFeedback.vibrate();

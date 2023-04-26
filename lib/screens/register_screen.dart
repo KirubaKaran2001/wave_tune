@@ -173,17 +173,17 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           child: NeoPopButton(
                             color: const Color(0xff2b65f3),
                             onTapUp: () {
-                              HapticFeedback.vibrate();
-                              // .then((value) {
-                              // FirebaseAuth.instance
-                              //     .createUserWithEmailAndPassword(
-                              //         email: emailController.text,
-                              //         password: passwordController.text)
-                              //     .then((value) {
-                              Navigator.pushNamed(context, '/login');
-                              // }).onError((error, stackTrace) {
-                              //   print('Error ${error.toString()}');
-                              // });
+                              HapticFeedback.vibrate().then((value) {
+                                FirebaseAuth.instance
+                                    .createUserWithEmailAndPassword(
+                                        email: emailController.text,
+                                        password: passwordController.text)
+                                    .then((value) {
+                                  Navigator.pushNamed(context, '/login');
+                                }).onError((error, stackTrace) {
+                                  print('Error ${error.toString()}');
+                                });
+                              });
                             },
                             onTapDown: () {
                               HapticFeedback.vibrate();
